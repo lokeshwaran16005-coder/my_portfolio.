@@ -144,6 +144,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .reveal{opacity:1;transform:none}
+  .caret{animation:blink 1s steps(1) infinite!important}
 }
 </style>
 </head>
@@ -173,7 +174,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
         <li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li><li><a href="#certifications">Certifications</a></li>
         <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
-        <li><a class="btn btn-sm magnetic" href="Lokeshwaran_G_Resume.pdf" download>Download Resume</a></li>
+        <li><a class="btn btn-sm magnetic" href="assets/resume.pdf" download>Download Resume</a></li>
       </ul>
     </nav>
   </div>
@@ -189,7 +190,7 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
       <p class="lead">BSc Computer Science with AI graduate learning to build, deploy and troubleshoot cloud infrastructure on AWS. I practise with Linux, Git, Jenkins, Docker and Terraform to automate deployments the reliable way.</p>
       <div class="cta">
         <a class="btn magnetic" href="#projects">View Projects</a>
-        <a class="btn ghost magnetic" href="Lokeshwaran_G_Resume.pdf" download>Download Resume</a>
+        <a class="btn ghost magnetic" href="assets/resume.pdf" download>Download Resume</a>
         <a class="btn icon ghost" href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener" aria-label="GitHub"><svg width="22" height="22"><use href="#i-gh"/></svg></a>
         <a class="btn icon ghost" href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22"><use href="#i-in"/></svg></a>
       </div>
@@ -368,11 +369,10 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
   }), { rootMargin: '-45% 0px -50% 0px' });
   $$('main section[id]').forEach(s => spy.observe(s));
 
-  /* ---------- Typewriter ---------- */
+  /* ---------- Typewriter (runs on every device, including phones) ---------- */
   const roles = ['AWS Cloud & DevOps Engineer', 'Automation & CI/CD Learner', 'Cloud Enthusiast'];
   const typed = $('#typed');
-  if (!reduce) {
-    /* Normal: typing and deleting effect */
+  {
     let r = 0, i = 0, del = false;
     const tick = () => {
       const w = roles[r];
@@ -383,13 +383,6 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
       setTimeout(tick, t);
     };
     typed.textContent = ''; tick();
-  } else {
-    /* Reduced motion: no typing, just swap the text every 2.5 seconds */
-    let r = 0;
-    setInterval(() => {
-      r = (r + 1) % roles.length;
-      typed.textContent = roles[r];
-    }, 2500);
   }
 
   /* ---------- Scroll reveal (staggered) ---------- */
