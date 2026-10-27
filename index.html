@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lokeshwaran G | AWS Cloud & DevOps Engineer</title>
+<meta name="description" content="Portfolio of Lokeshwaran G, a BSc Computer Science with AI graduate with hands-on projects in AWS, Jenkins, Docker, Kubernetes and Terraform.">
+<meta name="theme-color" content="#050b1a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lokeshwaran G | AWS Cloud & DevOps Engineer">
+<meta property="og:description" content="Entry-level AWS Cloud & DevOps engineer: EC2, S3, VPC, Jenkins, Docker, Kubernetes, Terraform.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050b1a'/%3E%3Cpath transform='translate(4 4)' d='M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z' fill='%2300d4ff'/%3E%3C/svg%3E">
+<style>
+/* ========== Design tokens ========== */
+:root{
+  --bg:#050b1a; --bg2:#0a1428; --text:#e6f1ff; --muted:#9db2cf;
+  --cyan:#00d4ff; --blue:#2f7bff; --purple:#7c5cff;
+  --grad:linear-gradient(120deg,var(--cyan),var(--blue) 55%,var(--purple));
+  --glass:rgba(14,28,56,.55); --line:rgba(0,212,255,.22);
+  --r:16px; --gap:clamp(1rem,2.5vw,1.75rem);
+  --font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#0f2350 0,transparent 60%),var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;font-size:clamp(.95rem,.9rem + .25vw,1.08rem);overflow-x:hidden}
+img,svg,canvas{max-width:100%}
+a{color:var(--cyan)}
+h1,h2,h3{line-height:1.15;margin:0 0 .6em;letter-spacing:-.02em}
+h1{font-size:clamp(2rem,1.2rem + 4.5vw,4.2rem)}
+h2{font-size:clamp(1.6rem,1.2rem + 2vw,2.5rem)}
+h3{font-size:clamp(1.05rem,1rem + .5vw,1.3rem)}
+p{margin:0 0 1em;max-width:70ch}
+ul{padding:0;margin:0;list-style:none}
+.wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--cyan);color:#000;padding:.7rem 1rem;z-index:100}
+.skip:focus{left:0}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.sr-live{min-height:1.2em;color:var(--cyan);font-size:.9rem;margin:.5rem 0 0}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-2;opacity:.55}
+.spotlight{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%),rgba(0,212,255,.10),transparent 70%)}
+
+/* ========== Shared components ========== */
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 0 1px rgba(124,92,255,.08),0 12px 40px rgba(0,0,0,.35)}
+.pad{padding:clamp(1.1rem,3vw,2rem)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;overflow-wrap:anywhere}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;min-width:44px;padding:.65rem 1.3rem;border-radius:999px;border:1px solid transparent;background:var(--grad);color:#02101f;font:600 .95rem var(--font);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 22px rgba(0,212,255,.35)}
+.btn:hover{box-shadow:0 0 32px rgba(0,212,255,.6)}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,212,255,.3)}
+.btn.icon{padding:.6rem}
+.btn-sm{padding:.45rem 1rem;font-size:.88rem}
+a.btn[aria-disabled=true]{opacity:.4;pointer-events:none}
+.meta{color:var(--muted);font-size:.95rem}
+.edit{color:#ffd37a}
+.sub{color:var(--muted)}
+.sec{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.cards{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
+.grid.two{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.facts li{padding:.55rem 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.facts strong{display:inline-block;min-width:6.5rem;color:var(--cyan)}
+.ticks li{position:relative;padding-left:1.4rem;margin-bottom:.4rem}
+.ticks li::before{content:"";position:absolute;left:0;top:.7em;width:.55rem;height:.55rem;border-radius:50%;background:var(--grad)}
+
+/* ========== Navigation ========== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(5,11,26,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;min-height:4rem}
+.logo{font:700 1.2rem monospace;color:var(--text);text-decoration:none;padding:.5rem}
+.logo span{color:var(--cyan)}
+.burger{display:grid;gap:5px;width:44px;height:44px;padding:11px 9px;background:none;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.burger i{display:block;height:2px;background:var(--text);transition:transform .3s,opacity .3s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#menu{position:fixed;inset:4rem 0 auto 0;max-height:calc(100dvh - 4rem);overflow-y:auto;background:rgba(5,11,26,.96);padding:1rem;transform:translateY(-12px);opacity:0;visibility:hidden;transition:.3s}
+#menu.open{transform:none;opacity:1;visibility:visible}
+#menu ul{display:grid;gap:.25rem}
+#menu a:not(.btn){display:flex;align-items:center;min-height:44px;padding:0 .8rem;color:var(--muted);text-decoration:none;border-radius:10px}
+#menu a:not(.btn):hover,#menu a.active{color:var(--cyan);background:rgba(0,212,255,.08)}
+#menu .btn{margin-top:.5rem;width:100%}
+@media(min-width:1100px){
+  .burger{display:none}
+  #menu{position:static;transform:none;opacity:1;visibility:visible;background:none;padding:0;overflow:visible}
+  #menu ul{display:flex;align-items:center;gap:.1rem}
+  #menu .btn{margin:0 0 0 .5rem;width:auto}
+}
+
+/* ========== Hero ========== */
+.hero{padding:clamp(2.5rem,7vw,6rem) 0 clamp(2rem,5vw,4rem);min-height:calc(100svh - 4rem);display:flex;align-items:center}
+.hero-grid{display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))}
+.status{display:inline-flex;align-items:center;gap:.6rem;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;font-size:.88rem;color:var(--muted)}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:#3dffa0;box-shadow:0 0 0 0 rgba(61,255,160,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(61,255,160,0)}100%{box-shadow:0 0 0 0 rgba(61,255,160,0)}}
+.type{font:600 clamp(1rem,.85rem + 1.2vw,1.45rem) var(--font);color:var(--cyan);min-height:2.6em;margin-bottom:.8rem}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--cyan);margin-left:3px;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.4rem}
+.art{padding:1rem;animation:glow 5s ease-in-out infinite alternate}
+@keyframes glow{to{box-shadow:0 0 0 1px rgba(0,212,255,.35),0 0 50px rgba(0,212,255,.22)}}
+.infra{width:100%;height:auto;display:block}
+.lines path{animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+
+/* ========== Skills / cards ========== */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0}
+.chip{min-height:44px;padding:0 1.1rem;border-radius:999px;background:transparent;color:var(--muted);border:1px solid var(--line);font:600 .9rem var(--font);cursor:pointer}
+.chip.on,.chip:hover{color:#02101f;background:var(--grad);border-color:transparent}
+.skills{grid-template-columns:repeat(auto-fill,minmax(min(100%,10.5rem),1fr))}
+.card{display:flex;align-items:center;gap:.7rem;padding:1rem;min-height:64px;background:var(--glass);border:1px solid var(--line);border-radius:var(--r);transition:transform .2s ease,border-color .2s,box-shadow .2s;transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0));will-change:transform}
+.card:hover{border-color:var(--cyan);box-shadow:0 0 24px rgba(0,212,255,.25)}
+.card svg{width:26px;height:26px;flex:none;color:var(--cyan)}
+.card[hidden]{display:none}
+.card3{position:relative;transition:transform .3s,box-shadow .3s}
+.card3:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(0,212,255,.25)}
+.proj{grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.cert{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.badge{display:inline-block;margin-bottom:.8rem;padding:.15rem .7rem;border-radius:999px;font-size:.78rem;color:#ffd37a;border:1px dashed #ffd37a}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{padding:.15rem .65rem;border-radius:999px;font-size:.8rem;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.4)}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin:0}
+
+/* ========== Form ========== */
+form label{display:block;margin:.8rem 0 .3rem;font-weight:600}
+input,textarea{width:100%;min-height:44px;padding:.7rem .9rem;border-radius:12px;border:1px solid var(--line);background:rgba(5,11,26,.7);color:var(--text);font:inherit}
+input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#ff6b81}
+.note{font-size:.88rem;color:var(--muted)}
+.err{color:#ff8fa0;min-height:1.4em;margin:.6rem 0}
+
+/* ========== Footer ========== */
+.foot{border-top:1px solid var(--line);padding:2rem 0;background:rgba(5,11,26,.6)}
+.foot-in{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.foot p{margin:0}
+.foot nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem}
+.foot nav a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ========== Reveal ========== */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media(max-width:360px){.btn{padding:.6rem 1rem}.facts strong{display:block}}
+@media(min-width:1800px){.wrap{width:min(1400px,100% - 4rem)}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="spotlight" aria-hidden="true"></div>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM7 9l3 3-3 3M12 15h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><path d="M12 5v6M12 11H5v4M12 11h7v4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="4" r="2" fill="currentColor"/><circle cx="5" cy="17" r="2" fill="currentColor"/><circle cx="19" cy="17" r="2" fill="currentColor"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M4 9h3.500v11H4zM5.750 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h3.300v1.600c.5-.9 1.700-1.900 3.500-1.900 3.600 0 4.200 2.300 4.200 5.300V20h-3.500v-5.300c0-1.300 0-2.900-1.800-2.900s-2.100 1.400-2.100 2.800V20H10z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a href="#home" class="logo" aria-label="Home">&lt;<span>LG</span>/&gt;</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i><i></i></button>
+    <nav id="menu" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li><li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-sm magnetic" href="assets/resume.pdf" download>Download Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="status"><span class="dot"></span> Open to entry-level cloud &amp; DevOps roles</p>
+      <h1>Hi, I'm <span class="grad">Lokeshwaran G</span></h1>
+      <p class="type" aria-live="off"><span id="typed">AWS Cloud &amp; DevOps Engineer</span><span class="caret" aria-hidden="true"></span></p>
+      <p class="lead">BSc Computer Science with AI graduate learning to build, deploy and troubleshoot cloud infrastructure on AWS. I practise with Linux, Git, Jenkins, Docker and Terraform to automate deployments the reliable way.</p>
+      <div class="cta">
+        <a class="btn magnetic" href="#projects">View Projects</a>
+        <a class="btn ghost magnetic" href="assets/resume.pdf" download>Download Resume</a>
+        <a class="btn icon ghost" href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener" aria-label="GitHub"><svg width="22" height="22"><use href="#i-gh"/></svg></a>
+        <a class="btn icon ghost" href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="22" height="22"><use href="#i-in"/></svg></a>
+      </div>
+    </div>
+    <div class="art glass" role="img" aria-label="Animated diagram of a cloud network: users connect through a load balancer to servers and storage">
+      <svg viewBox="0 0 400 320" class="infra">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset="1" stop-color="#7c5cff"/></linearGradient></defs>
+        <g class="lines" fill="none" stroke="url(#g)" stroke-width="1.5" stroke-dasharray="5 6">
+          <path d="M200 70V130M200 130L90 200M200 130L200 200M200 130L310 200M90 200V265M310 200V265"/>
+        </g>
+        <g class="node float" fill="#0a1830" stroke="url(#g)" stroke-width="2">
+          <rect x="165" y="30" width="70" height="40" rx="10"/><rect x="165" y="110" width="70" height="40" rx="10"/>
+          <rect x="55" y="200" width="70" height="40" rx="10"/><rect x="165" y="200" width="70" height="40" rx="10"/><rect x="275" y="200" width="70" height="40" rx="10"/>
+          <ellipse cx="90" cy="275" rx="32" ry="14"/><ellipse cx="310" cy="275" rx="32" ry="14"/>
+        </g>
+        <g fill="#cfe9ff" font-size="12" text-anchor="middle" font-family="sans-serif">
+          <text x="200" y="55">Route 53</text><text x="200" y="135">ELB</text>
+          <text x="90" y="225">EC2</text><text x="200" y="225">EC2</text><text x="310" y="225">EC2</text>
+          <text x="90" y="279">S3</text><text x="310" y="279">EBS</text>
+        </g>
+        <circle r="4" fill="#00d4ff"><animateMotion dur="3s" repeatCount="indefinite" path="M200 70V130L90 200"/></circle>
+        <circle r="4" fill="#7c5cff"><animateMotion dur="3.4s" repeatCount="indefinite" path="M200 70V130L310 200"/></circle>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sec"><div class="wrap">
+  <h2 class="reveal">About me</h2>
+  <div class="grid two reveal glass pad">
+    <div>
+      <p>I'm a BSc Computer Science with Artificial Intelligence graduate focused on cloud infrastructure and DevOps. I enjoy understanding how systems fit together: networks, servers, storage, pipelines and the automation that connects them.</p>
+      <p>My learning is hands-on. I built a CI/CD pipeline on AWS EC2 with Jenkins and Docker, automated deployment steps with shell scripts, and deployed containerized apps on Kubernetes. I'm early in my career and looking for a team where I can contribute, learn from experienced engineers and keep improving.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>Focus</strong> AWS fundamentals, Linux, CI/CD</li>
+      <li><strong>Approach</strong> Build, break, troubleshoot, document</li>
+      <li><strong>Background</strong> Web development internship (Git, agile team)</li>
+      <li><strong>Seeking</strong> Entry-level Cloud / DevOps role</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="skills" class="sec"><div class="wrap">
+  <h2 class="reveal">Skills</h2>
+  <p class="sub reveal">Tools I have used in my projects and training, grouped by topic.</p>
+  <div class="filters reveal" role="group" aria-label="Filter skills">
+    <button class="chip on" data-f="all" aria-pressed="true">All</button><button class="chip" data-f="aws" aria-pressed="false">AWS</button>
+    <button class="chip" data-f="devops" aria-pressed="false">DevOps</button><button class="chip" data-f="linux" aria-pressed="false">Linux</button>
+    <button class="chip" data-f="net" aria-pressed="false">Networking</button><button class="chip" data-f="fe" aria-pressed="false">Programming &amp; Web</button>
+  </div>
+  <ul class="cards skills" id="skillGrid">
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>EC2</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>S3</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>IAM</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>VPC</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>EBS</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>EFS</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>Route 53</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>ELB</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>Auto Scaling</li>
+    <li class="card tilt" data-c="aws"><svg><use href="#i-cloud"/></svg>CloudWatch</li>
+    <li class="card tilt" data-c="devops"><svg><use href="#i-box"/></svg>Git &amp; GitHub</li>
+    <li class="card tilt" data-c="devops"><svg><use href="#i-box"/></svg>Jenkins</li>
+    <li class="card tilt" data-c="devops"><svg><use href="#i-box"/></svg>Docker</li>
+    <li class="card tilt" data-c="devops"><svg><use href="#i-box"/></svg>Kubernetes</li>
+    <li class="card tilt" data-c="devops"><svg><use href="#i-box"/></svg>Terraform</li>
+    <li class="card tilt" data-c="linux"><svg><use href="#i-term"/></svg>Ubuntu</li><li class="card tilt" data-c="linux"><svg><use href="#i-term"/></svg>Amazon Linux</li>
+    <li class="card tilt" data-c="linux"><svg><use href="#i-term"/></svg>Shell scripting</li>
+    <li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>TCP/IP</li><li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>DNS</li><li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>HTTP/HTTPS</li><li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>SSH</li><li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>Security Groups</li>
+    <li class="card tilt" data-c="net"><svg><use href="#i-net"/></svg>VPC &amp; Subnets</li>
+    <li class="card tilt" data-c="fe"><svg><use href="#i-code"/></svg>Python</li><li class="card tilt" data-c="fe"><svg><use href="#i-code"/></svg>Java</li><li class="card tilt" data-c="fe"><svg><use href="#i-code"/></svg>HTML</li>
+    <li class="card tilt" data-c="fe"><svg><use href="#i-code"/></svg>CSS</li>
+    <li class="card tilt" data-c="fe"><svg><use href="#i-code"/></svg>JavaScript</li>
+  </ul>
+</div></section>
+
+<section id="experience" class="sec"><div class="wrap">
+  <h2 class="reveal">Experience</h2>
+  <article class="glass pad reveal">
+    <h3>Web Development Intern</h3>
+    <p class="meta">Sand Bird Research and Development Pvt. Ltd. &middot; 26 Jun 2025 to 25 Jul 2025 (1 month)</p>
+    <ul class="ticks">
+      <li>Built and tested new front-end features for the M Square Real Estate platform.</li>
+      <li>Found and fixed page responsiveness issues, improving load performance.</li>
+      <li>Used Git for version control while working in an agile team.</li>
+    </ul>
+    <p class="links"><a class="btn btn-sm ghost" href="https://github.com/lokeshwaran16005-coder/M-square" target="_blank" rel="noopener">M Square repo</a></p>
+  </article>
+</div></section>
+
+<section id="projects" class="sec"><div class="wrap">
+  <h2 class="reveal">Projects</h2>
+  <div class="cards proj">
+    <article class="glass pad card3 reveal"><h3>Automated CI/CD Pipeline on AWS</h3><p class="tags"><span>AWS EC2</span><span>Jenkins</span><span>Docker</span><span>Git</span><span>GitHub</span><span>Shell</span></p><ul class="ticks"><li><b>Problem:</b> Manual build, test and release steps were slow.</li><li><b>Solution:</b> Built an end-to-end pipeline on EC2 that automates build, test and deployment.</li><li><b>Outcome:</b> Shell scripts cut manual release effort and reduced deployment time.</li></ul><p class="links"><a class="btn btn-sm ghost" href="#" data-url="">GitHub</a></p></article>
+    <article class="glass pad card3 reveal"><h3>Kubernetes Application Deployment</h3><p class="tags"><span>Kubernetes</span><span>Docker</span><span>Ingress</span></p><ul class="ticks"><li><b>Solution:</b> Deployed containerized apps using Deployments, ReplicaSets, Services and Ingress.</li><li><b>Outcome:</b> Used rolling updates, namespace isolation and health checks for zero-downtime releases.</li></ul><p class="links"><a class="btn btn-sm ghost" href="#" data-url="">GitHub</a></p></article>
+    <article class="glass pad card3 reveal"><h3>Self-Learning Mobile Security System</h3><p class="tags"><span>Python</span><span>Flutter</span><span>OpenCV</span><span>Google ML Kit</span></p><ul class="ticks"><li><b>Solution:</b> Mobile app combining face detection and behavioural analysis.</li><li><b>Outcome:</b> Flags unauthorized access attempts.</li></ul><p class="links"><a class="btn btn-sm ghost" href="#" data-url="">GitHub</a></p></article>
+    <article class="glass pad card3 reveal"><h3>M Square Real Estate Platform</h3><p class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span></p><ul class="ticks"><li><b>Solution:</b> Front-end features built and tested during my internship.</li><li><b>Outcome:</b> Fixed responsiveness issues and improved load performance.</li></ul><p class="links"><a class="btn btn-sm ghost" href="https://github.com/lokeshwaran16005-coder/M-square" target="_blank" rel="noopener">GitHub</a></p></article>
+  </div>
+</div></section>
+
+<section id="certifications" class="sec"><div class="wrap">
+  <h2 class="reveal">Certifications &amp; training</h2>
+  <div class="cards cert">
+    <article class="glass pad reveal"><h3>Basic Python</h3><p class="meta">Infosys Springboard</p></article>
+    <article class="glass pad reveal"><h3>Object-Oriented Programming Using Python</h3><p class="meta">Infosys Springboard</p></article>
+    <article class="glass pad reveal"><h3>DevOps Fundamentals</h3><p class="meta">IBM</p></article>
+    <article class="glass pad reveal"><h3>AWS Cloud &amp; DevOps Training</h3><p class="meta">Training program (not an official AWS certification)</p></article>
+  </div>
+</div></section>
+
+<section id="education" class="sec"><div class="wrap">
+  <h2 class="reveal">Education</h2>
+  <article class="glass pad reveal"><h3>BSc Computer Science with Artificial Intelligence</h3>
+    <p class="meta">Jeppiaar College of Arts and Science, Chennai &middot; 2023 to 2026 &middot; 70.63%</p></article>
+</div></section>
+
+<section id="contact" class="sec"><div class="wrap">
+  <h2 class="reveal">Contact</h2>
+  <div class="grid two">
+    <div class="glass pad reveal">
+      <p>Hiring or want to talk cloud? I'd like to hear from you.</p>
+      <ul class="facts">
+        <li><strong>Email</strong> <a id="mail" href="mailto:lokeshwaran1611@gmail.com">lokeshwaran1611@gmail.com</a> <button class="btn btn-sm ghost" id="copy" type="button">Copy email</button></li>
+        <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener">linkedin.com/in/lokeshwaran1611</a></li>
+        <li><strong>GitHub</strong> <a href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener">github.com/lokeshwaran16005-coder</a></li>
+        <li><strong>Location</strong> Chennai, India</li>
+      </ul><p class="sr-live" id="copied" role="status"></p>
+    </div>
+    <form class="glass pad reveal" id="form" novalidate>
+      <p class="note">This form opens your email app with the message filled in. Nothing is sent until you press send there.</p>
+      <label for="n">Name</label><input id="n" name="n" autocomplete="name" required>
+      <label for="e">Email</label><input id="e" name="e" type="email" autocomplete="email" required>
+      <label for="m">Message</label><textarea id="m" name="m" rows="4" required></textarea>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn magnetic" type="submit">Open in email app</button>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <p>&copy; <span id="yr"></span> Lokeshwaran G. Built with HTML, CSS and JavaScript.</p>
+  <nav aria-label="Footer"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    <a href="https://github.com/lokeshwaran16005-coder" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/lokeshwaran1611" target="_blank" rel="noopener">LinkedIn</a></nav>
+  <a class="btn btn-sm ghost" href="#top">Back to top</a>
+</div></footer>
+
+<script>
+/* Portfolio interactions: vanilla JS, no dependencies */
+(() => {
+  'use strict';
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const lowPower = (navigator.hardwareConcurrency || 4) <= 2 || (navigator.deviceMemory || 4) <= 2;
+  document.documentElement.classList.add('js');
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---------- Mobile menu ---------- */
+  const burger = $('#burger'), menu = $('#menu');
+  const setMenu = open => {
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); burger.focus(); } });
+
+  /* ---------- Active section highlight ---------- */
+  const links = $$('#menu a[href^="#"]');
+  const spy = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section[id]').forEach(s => spy.observe(s));
+
+  /* ---------- Typewriter ---------- */
+  const roles = ['AWS Cloud & DevOps Engineer', 'Automation & CI/CD Learner', 'Cloud Enthusiast'];
+  const typed = $('#typed');
+  if (!reduce) {
+    /* Normal: typing and deleting effect */
+    let r = 0, i = 0, del = false;
+    const tick = () => {
+      const w = roles[r];
+      typed.textContent = w.slice(0, del ? --i : ++i);
+      let t = del ? 35 : 70;
+      if (!del && i === w.length) { del = true; t = 1700; }
+      else if (del && i === 0) { del = false; r = (r + 1) % roles.length; t = 350; }
+      setTimeout(tick, t);
+    };
+    typed.textContent = ''; tick();
+  } else {
+    /* Reduced motion: no typing, just swap the text every 2.5 seconds */
+    let r = 0;
+    setInterval(() => {
+      r = (r + 1) % roles.length;
+      typed.textContent = roles[r];
+    }, 2500);
+  }
+
+  /* ---------- Scroll reveal (staggered) ---------- */
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+  }), { threshold: .12 });
+  $$('.reveal').forEach((el, n) => { el.style.setProperty('--d', (n % 4) * .08 + 's'); io.observe(el); });
+
+  /* ---------- Skill filters ---------- */
+  const chips = $$('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => { x.classList.toggle('on', x === c); x.setAttribute('aria-pressed', x === c); });
+    $$('#skillGrid .card').forEach(k => { k.hidden = c.dataset.f !== 'all' && k.dataset.c !== c.dataset.f; });
+  }));
+
+  /* ---------- Disable links with no URL ---------- */
+  $$('a[data-url]').forEach(a => {
+    const u = a.dataset.url.trim();
+    if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener'; }
+    else { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.title = 'Link not added yet'; }
+  });
+
+  /* ---------- Pointer effects (desktop only) ---------- */
+  if (fine && !reduce) {
+    const sp = $('.spotlight');
+    addEventListener('pointermove', e => { sp.style.setProperty('--mx', e.clientX + 'px'); sp.style.setProperty('--my', e.clientY + 'px'); }, { passive: true });
+    $$('.tilt').forEach(c => {
+      c.addEventListener('pointermove', e => {
+        const b = c.getBoundingClientRect();
+        c.style.setProperty('--ry', ((e.clientX - b.left) / b.width - .5) * 14 + 'deg');
+        c.style.setProperty('--rx', (.5 - (e.clientY - b.top) / b.height) * 14 + 'deg');
+      });
+      c.addEventListener('pointerleave', () => { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
+    });
+    $$('.magnetic').forEach(b => {
+      b.addEventListener('pointermove', e => {
+        const r = b.getBoundingClientRect();
+        b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .2}px,${(e.clientY - r.top - r.height / 2) * .3}px)`;
+      });
+      b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+    });
+  }
+
+  /* ---------- Animated grid + nodes background ---------- */
+  const cv = $('#bg'), ctx = cv.getContext('2d');
+  let W, H, pts = [];
+  const size = () => {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    W = cv.width = innerWidth * d; H = cv.height = innerHeight * d;
+    pts = Array.from({ length: lowPower ? 0 : Math.min(45, Math.floor(innerWidth / 30)) }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .4 * d, vy: (Math.random() - .5) * .4 * d }));
+  };
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    ctx.strokeStyle = 'rgba(0,212,255,.06)'; ctx.lineWidth = 1;
+    const g = 60 * (devicePixelRatio > 1 ? 1.5 : 1);
+    ctx.beginPath();
+    for (let x = 0; x < W; x += g) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+    for (let y = 0; y < H; y += g) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
+    ctx.stroke();
+    pts.forEach((p, i) => {
+      p.x = (p.x + p.vx + W) % W; p.y = (p.y + p.vy + H) % H;
+      ctx.fillStyle = 'rgba(0,212,255,.6)'; ctx.fillRect(p.x, p.y, 2, 2);
+      for (let j = i + 1; j < pts.length; j++) {
+        const q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d2 = dx * dx + dy * dy;
+        if (d2 < 22000) { ctx.strokeStyle = `rgba(124,92,255,${.25 - d2 / 90000})`; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
+      }
+    });
+  };
+  let raf;
+  const loop = () => { draw(); raf = requestAnimationFrame(loop); };
+  size(); draw();
+  if (!reduce && !lowPower) loop();
+  addEventListener('resize', () => { size(); if (reduce || lowPower) draw(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(raf); else if (!reduce && !lowPower) loop();
+  });
+
+  /* ---------- Copy email ---------- */
+  const mail = $('#mail'), note = $('#copied');
+  $('#copy').addEventListener('click', async () => {
+    const addr = mail.textContent.trim();
+    try { await navigator.clipboard.writeText(addr); note.textContent = 'Email copied to clipboard.'; }
+    catch { note.textContent = 'Copy failed. Select the address and copy it manually.'; }
+    setTimeout(() => note.textContent = '', 3000);
+  });
+
+  /* ---------- Contact form: validate, then mailto (no backend) ---------- */
+  const f = $('#form'), err = $('#err');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const n = f.n, em = f.e, m = f.m;
+    const bad = [n, em, m].filter(x => !x.value.trim() || (x === em && !em.validity.valid));
+    [n, em, m].forEach(x => x.setAttribute('aria-invalid', bad.includes(x)));
+    if (bad.length) { err.textContent = 'Please fill in your name, a valid email and a message.'; bad[0].focus(); return; }
+    err.textContent = '';
+    const body = `${m.value}\n\nFrom: ${n.value} (${em.value})`;
+    location.href = `mailto:${mail.textContent.trim()}?subject=${encodeURIComponent('Portfolio enquiry from ' + n.value)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
+</body>
+</html>
